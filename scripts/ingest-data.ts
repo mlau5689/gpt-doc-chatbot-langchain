@@ -23,7 +23,7 @@ export const run = async () => {
 
     /* Split text into chunks */
     const textSplitter = new RecursiveCharacterTextSplitter({
-      chunkSize: 500,
+      chunkSize: 1000,
       chunkOverlap: 200,
     });
 
@@ -34,6 +34,9 @@ export const run = async () => {
     /*create and store the embeddings in the vectorStore*/
     const embeddings = new OpenAIEmbeddings();
     const index = pinecone.Index(PINECONE_INDEX_NAME); //change to your own index name
+
+    //delete all existing vectors
+    await index.delete1({deleteAll: true, namespace: PINECONE_NAME_SPACE})
 
     //embed the PDF documents
     await PineconeStore.fromDocuments(docs, embeddings, {
