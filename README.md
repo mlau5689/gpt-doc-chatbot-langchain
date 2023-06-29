@@ -8,6 +8,10 @@ Tech stack used includes LangChain, Pinecone, Typescript, Openai, and Next.js. L
 
 Prelude: Please make sure you have already downloaded node on your system and the version is 18 or greater.
 
+## Diagram
+
+![Visualization of the codebase](./diagram.svg)
+
 ## Development
 
 1. Clone the repo or download the ZIP
